@@ -8,7 +8,19 @@ const port = process.env.PORT;
 
 //declare app 
 const app = express();
+
+//parsing request body data
+app.use(express.json({
+    limit: '15kb'
+}));
+
+app.use(express.urlencoded({
+    extended: true
+}));
+
 app.use("/api/v1/auth", authRoutes);
+
+//
 
 //start server on port
 app.listen(port, () => {
