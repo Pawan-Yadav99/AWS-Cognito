@@ -1,4 +1,4 @@
-const authService = require("../servies/authService");
+const authService = require("../services/authService");
 const constants = require("../utils/constansts");
 
 
