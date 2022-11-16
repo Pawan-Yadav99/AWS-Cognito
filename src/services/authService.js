@@ -14,15 +14,15 @@ const createUser = async (info) => {
         return new Promise((resolve, reject) => {
             let attributesList = [];
             attributesList.push(new AmazonCognitoIdentity.CognitoUserAttribute({
-                Name: "user_email",
-                Value: info.email
+                Name: "custom:country",
+                Value: "India"
             }));
             attributesList.push(new AmazonCognitoIdentity.CognitoUserAttribute({
-                Name: "user_password",
-                Value: info.password
+                Name: "custom:age",
+                Value: "24"
             }));
 
-            userPool.signUp(info.email, info.password, [], null, ((error, result) => {
+            userPool.signUp(info.email, info.password, attributesList, null, ((error, result) => {
                 if (error) {
                     return reject(error)
                 }
